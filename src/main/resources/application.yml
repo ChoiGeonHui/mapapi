@@ -1,0 +1,19 @@
+logging:
+  level:
+    org:
+      springframework: debug
+      objectweb: debug
+
+server:
+  port: 8088
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/a_eat?useSSL=false&allowMultiQueries=true
+    username: choiroot
+    password: choiroot
+
+mybatis:
+  mapper-locations: mybatis/**/*Mapper.xml

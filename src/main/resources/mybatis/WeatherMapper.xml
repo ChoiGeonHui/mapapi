@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapapi.food.repository.WeatherRepository">
+
+
+    <resultMap id="simpleWeather" type="com.mapapi.food.domain.Weather">
+
+        <result property="yrmmdd"                   column="YRMMDD"/>
+        <result property="hour"                     column="HOUR"/>
+        <result property="temperature"              column="TEMPERATURE"/>
+        <result property="precipitationForm"        column="PRECIPITATIONFORM"/>
+        <result property="humidity"                 column="HUMIDITY"/>
+
+    </resultMap>
+
+
+
+
+
+    <insert id="insertWeather">
+        insert into weather
+            (
+                YRMMDD,HOUR,TEMPERATURE,PRECIPITATIONFORM,HUMIDITY
+            )
+        value(
+            #{yrmmdd},#{hour},#{temperature},#{precipitationForm},#{humidity}
+        )
+    </insert>
+
+
+</mapper>
