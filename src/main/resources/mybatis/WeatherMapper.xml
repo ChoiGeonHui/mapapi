@@ -20,11 +20,20 @@
     <insert id="insertWeather">
         insert into weather
             (
-                YRMMDD,HOUR,TEMPERATURE,PRECIPITATIONFORM,HUMIDITY
+                YRMMDD,
+                HOUR,
+                TEMPERATURE,
+                PRECIPITATIONFORM,
+                HUMIDITY
             )
-        value(
-            #{yrmmdd},#{hour},#{temperature},#{precipitationForm},#{humidity}
-        )
+        value
+            (
+                #{yrmmdd},
+                #{hour},
+                #{temperature},
+                #{precipitationForm},
+                #{humidity}
+            )
     </insert>
 
 
