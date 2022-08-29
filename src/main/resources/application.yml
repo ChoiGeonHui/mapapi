@@ -14,6 +14,11 @@ spring:
     url: jdbc:mysql://localhost:3306/a_eat?useSSL=false&allowMultiQueries=true
     username: choiroot
     password: choiroot
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern:  /static/**
 
 mybatis:
   mapper-locations: mybatis/**/*Mapper.xml

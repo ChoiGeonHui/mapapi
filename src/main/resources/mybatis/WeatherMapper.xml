@@ -13,6 +13,15 @@
 
     </resultMap>
 
+    <sql id="selectW">
+        select
+            YRMMDD,
+            HOUR,
+            TEMPERATURE,
+            PRECIPITATIONFORM,
+            HUMIDITY
+        from weather
+    </sql>
 
 
 
@@ -35,6 +44,23 @@
                 #{humidity}
             )
     </insert>
+
+    <select id="selectWeather" resultMap="simpleWeather">
+        select
+        YRMMDD,
+        HOUR,
+        TEMPERATURE,
+        PRECIPITATIONFORM,
+        HUMIDITY
+        from weather
+        <where>
+            <if test="yrmmdd != null and yrmmdd != ''">and YRMMDD = #{yrmmdd}</if>
+        </where>
+        order by HOUR desc
+        limit 1;
+
+
+    </select>
 
 
 </mapper>

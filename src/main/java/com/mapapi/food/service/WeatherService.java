@@ -26,6 +26,13 @@ public class WeatherService {
 
     private static Logger logger = LoggerFactory.getLogger(WeatherService.class);
 
+
+
+    /**
+     * 초단기 실황
+     * @return
+     * @throws Exception
+     */
     @Transactional
     public String restApiGetWeather() throws Exception {
 
@@ -33,7 +40,7 @@ public class WeatherService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("HHmm");
         String yrmmdd = simpleDateFormat.format(date);
-//        String baseTime = "1230";
+//        String baseTime = "0900";
         String baseTime = simpleDateFormat2.format(date); // 반드시 40 ~ 59분 사이에 실행해야 함
 
         //외부 api 주소
@@ -120,7 +127,7 @@ public class WeatherService {
         weather.setHumidity(humidity);
         weather.setPrecipitationForm(precipitationForm);
 
-//        int chk = insertWeather(weather); // DB insert
+        int chk = insertWeather(weather); // DB insert
 
         return "success";
     }
@@ -154,7 +161,14 @@ public class WeatherService {
 
     @Transactional
     public Weather selectWeather(){
-        return null;
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        String yrmmdd = simpleDateFormat.format(date);
+        Weather weather = new Weather();
+        weather.setYrmmdd(yrmmdd);
+        weather = weatherRepository.selectWeather(weather);
+
+        return weather;
     }
 
 

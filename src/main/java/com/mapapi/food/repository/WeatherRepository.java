@@ -9,4 +9,7 @@ public interface WeatherRepository {
 
     int insertWeather(Weather weather);
 
+    Weather selectWeather(Weather weather);
+
+
 }
