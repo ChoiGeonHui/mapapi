@@ -5,21 +5,21 @@
 
     <resultMap id="simpleWeather" type="com.mapapi.food.domain.Weather">
 
-        <result property="yrmmdd"                   column="YRMMDD"/>
-        <result property="hour"                     column="HOUR"/>
-        <result property="temperature"              column="TEMPERATURE"/>
-        <result property="precipitationForm"        column="PRECIPITATIONFORM"/>
-        <result property="humidity"                 column="HUMIDITY"/>
+        <result property="yrmmdd"                   column="yrmmdd"/>
+        <result property="hour"                     column="hour"/>
+        <result property="temperature"              column="temperature"/>
+        <result property="precipitationForm"        column="precipitation_form"/>
+        <result property="humidity"                 column="humidity"/>
 
     </resultMap>
 
     <sql id="selectW">
         select
-            YRMMDD,
-            HOUR,
-            TEMPERATURE,
-            PRECIPITATIONFORM,
-            HUMIDITY
+            yrmmdd,
+            hour,
+            temperature,
+            precipitation_form,
+            humidity
         from weather
     </sql>
 
@@ -29,11 +29,11 @@
     <insert id="insertWeather">
         insert into weather
             (
-                YRMMDD,
-                HOUR,
-                TEMPERATURE,
-                PRECIPITATIONFORM,
-                HUMIDITY
+                yrmmdd,
+                hour,
+                temperature,
+                precipitation_form,
+                humidity
             )
         value
             (
@@ -46,15 +46,9 @@
     </insert>
 
     <select id="selectWeather" resultMap="simpleWeather">
-        select
-        YRMMDD,
-        HOUR,
-        TEMPERATURE,
-        PRECIPITATIONFORM,
-        HUMIDITY
-        from weather
+        <include refid="selectW"/>
         <where>
-            <if test="yrmmdd != null and yrmmdd != ''">and YRMMDD = #{yrmmdd}</if>
+            <if test="yrmmdd != null and yrmmdd != ''">and yrmmdd = #{yrmmdd}</if>
         </where>
         order by HOUR desc
         limit 1;

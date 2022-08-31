@@ -40,7 +40,7 @@ public class WeatherService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("HHmm");
         String yrmmdd = simpleDateFormat.format(date);
-//        String baseTime = "0900";
+//        String baseTime = "1200";
         String baseTime = simpleDateFormat2.format(date); // 반드시 40 ~ 59분 사이에 실행해야 함
 
         //외부 api 주소

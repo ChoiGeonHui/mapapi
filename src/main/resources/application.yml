@@ -10,10 +10,10 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/a_eat?useSSL=false&allowMultiQueries=true
-    username: choiroot
-    password: choiroot
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.1.84:3306/a_eat_db?useSSL=false&allowMultiQueries=true
+    username: a_eat_user
+    password: "!adnstyleDB"
   mvc:
     view:
       prefix: /WEB-INF/jsp/

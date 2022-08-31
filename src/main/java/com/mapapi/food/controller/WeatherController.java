@@ -37,8 +37,8 @@ public class WeatherController {
 //    @ResponseBody
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     public String showWeather(Model model){
-//        Weather weather = weatherService.selectWeather();
-//        model.addAttribute("weather", weather);
+        Weather weather = weatherService.selectWeather();
+        model.addAttribute("weather", weather);
         return "show";
     }
 
