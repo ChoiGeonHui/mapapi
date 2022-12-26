@@ -1,8 +1,10 @@
 logging:
   level:
     org:
-      springframework: debug
-      objectweb: debug
+    springframework: debug
+    objectweb: debug
+    root: debug
+    com.mapapi.food: debug
 
 server:
   port: 8088

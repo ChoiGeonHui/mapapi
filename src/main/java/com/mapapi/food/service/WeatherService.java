@@ -27,7 +27,6 @@ public class WeatherService {
     private static Logger logger = LoggerFactory.getLogger(WeatherService.class);
 
 
-
     /**
      * 초단기 실황
      * @return
@@ -119,7 +118,7 @@ public class WeatherService {
         //시간 설정 1100 -> 11:00
         String x = jsonArray.getJSONObject(0).getString("baseTime");
         StringBuilder hour = new StringBuilder(x);
-        hour.insert(2,":");
+        hour.insert(2, ":");
 
         weather.setYrmmdd(yrmmdd);
         weather.setHour(hour.toString());
@@ -160,7 +159,7 @@ public class WeatherService {
 
 
     @Transactional
-    public Weather selectWeather(){
+    public Weather selectWeather() {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         String yrmmdd = simpleDateFormat.format(date);

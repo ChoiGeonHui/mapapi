@@ -23,30 +23,24 @@ public class WeatherController {
     @Scheduled(cron = "0 43 * * * MON-FRI") //월 ~ 금, 매 시간마다 43분에 실행한다.
     public String restApiGetWeather() throws Exception {
 
-         String result = weatherService.restApiGetWeather();
+        String result = weatherService.restApiGetWeather();
 
         return "result : " + result;
     }
 
     @ResponseBody
     @RequestMapping("/test")
-    public String test(){
+    public String test() {
         return "testSuccess";
     }
 
-//    @ResponseBody
-    @RequestMapping(value = "/show",method = RequestMethod.GET)
-    public String showWeather(Model model){
+    //    @ResponseBody
+    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    public String showWeather(Model model) {
         Weather weather = weatherService.selectWeather();
         model.addAttribute("weather", weather);
         return "show";
     }
-
-
-
-
-
-
 
 
 }
